@@ -44,6 +44,8 @@ img {
 	width: 100%;
 }
 
+
+
 table {
 	margin-top: 70px;
 }
@@ -131,6 +133,8 @@ textarea {
 	margin-top: 1rem;
 }
 
-<!-- HTML !-->
-<button class="button-4" role="button">Button 4</button>
 
+.rainbow-text {
+  background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);   -webkit-background-clip: text;
+  color: transparent;
+}
