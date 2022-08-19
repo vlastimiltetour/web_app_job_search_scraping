@@ -1,48 +1,24 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+from job_scraper import *
 
 app = Flask(__name__)
 
-global job_results
-job_results = []
-
-
-@app.route("/", methods=['POST', 'GET'])
+@app.route("/")
 def home():
-    if request.method == 'POST':
-        job = request.form.get('job')
-        job_results.append(job)
-        print(job_results)
-        return render_template('index.html',job_results=job_results)
+    return render_template("home.html")
+
+
+@app.route('/scrape', methods=['POST', 'GET'])
+def results():
+    if request.method == 'GET':
+        job_search = request.form.get('job_search')
+        scrape_data(job_search)
+
+        return render_template('home.html', data=data)
     else:
-        return render_template('index.html')
+        print('ERROR')
 
-    return render_template("index.html", job_results=job_results)
-
-
-''''@app.route("/add", methods=["POST"])
-def add():
-    title = request.form.get("title")
-    new_todo = Todo(title=title, complete=False)
-    db.session.add(new_todo)
-    db.session.commit()
-    return redirect(url_for("home"))
-
-
-@app.route("/update/<int:todo_id>")
-def update(todo_id):
-    todo = Todo.query.filter_by(id=todo_id).first()
-    todo.complete = not todo.complete
-    db.session.commit()
-    return redirect(url_for("home"))
-
-
-@app.route("/delete/<int:todo_id>")
-def delete(todo_id):
-    todo = Todo.query.filter_by(id=todo_id).first()
-    db.session.delete(todo)
-    db.session.commit()
-    return redirect(url_for("home"))'''
+    return render_template('home.html', data=data)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -11,9 +11,10 @@
     <p class="rainbow-text">
       The Ultimate Job Scraper by vlk
 
-      <form name="form" method="post" action="/">
-          <input name="job" type="text" placeholder="Find any job"><br>
+      <form name="form" method="post" action="/scrape">
+          <input name="job_search" type="text" placeholder="Find any job"><br>
           <input type="submit" value="Scrape!">
+
       </form>
 
 
@@ -25,8 +26,8 @@
         <th>Title</th>
         <th>Company</th>
         <th>Salary</th>
-        <th>Summary</th>
-        <th>Platform</th>
+        <th>Link</th>
+
 
       </tr>
     </thead>
@@ -35,7 +36,7 @@
         <tr>
           {% for row in job %}
           <td>{{row}}</td>
-           {% endfor %}
+          {% endfor %}
         </tr>
     {% endfor %}
     </tbody>

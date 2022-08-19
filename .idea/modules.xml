@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Web_App_Job_Search_Scraping_DB.iml" filepath="$PROJECT_DIR$/.idea/Web_App_Job_Search_Scraping_DB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/web_app_job_search_scraping.iml" filepath="$PROJECT_DIR$/.idea/web_app_job_search_scraping.iml" />
     </modules>
   </component>
 </project>
